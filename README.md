@@ -106,4 +106,4 @@ services:
       - VERBOSE=true
     restart: always
 ```
-Thank you to Fmstrat/sshtunnel for the original concept and code
+Thank you to [Fmstrat/sshtunnel](https://github.com/Fmstrat/sshtunnel) for the original concept and code.
