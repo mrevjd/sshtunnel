@@ -5,6 +5,10 @@ if [ "${VERBOSE}" = "true" ]; then
 	V='-vv'
 fi
 
+if [ ! -z "$USER" ]; then
+	LOGIN="-l $USER"
+fi
+
 if [ "$REMOTE" != "true" ]; then
 	IFS=',' read -r -a REMOTE_HOST_ARRAY <<< "$REMOTE_HOST"
 	IFS=',' read -r -a LOCAL_PORT_ARRAY <<< "$LOCAL_PORT"
@@ -19,8 +23,8 @@ if [ "$REMOTE" != "true" ]; then
 		-Nn $TUNNEL_HOST \
 		-p $TUNNEL_PORT \
 		${FORWARDING} \
-		-i $KEY
-  		-l $USER
+		-i $KEY \
+  		$LOGIN
 else
 	LOCAL_HOST="0.0.0.0"
 	if [ -n "$LISTEN_HOST" ]; then
@@ -39,6 +43,6 @@ else
 		-Nn $TUNNEL_HOST \
 		-p $TUNNEL_PORT \
 		${FORWARDING} \
-		-i $KEY
-  		-l $USER
+		-i $KEY \
+  		$LOGIN
 fi
