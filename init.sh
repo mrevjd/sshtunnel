@@ -20,6 +20,7 @@ if [ "$REMOTE" != "true" ]; then
 		-p $TUNNEL_PORT \
 		${FORWARDING} \
 		-i $KEY
+  		-l $USER
 else
 	LOCAL_HOST="0.0.0.0"
 	if [ -n "$LISTEN_HOST" ]; then
@@ -39,4 +40,5 @@ else
 		-p $TUNNEL_PORT \
 		${FORWARDING} \
 		-i $KEY
+  		-l $USER
 fi
